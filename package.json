@@ -1,0 +1,26 @@
+{
+  "name": "wicker",
+  "version": "1.0.0",
+  "description": "A live collaborative wiki",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "firebase",
+    "nodejs",
+    "react"
+  ],
+  "author": "Dimitar Danailov",
+  "license": "MIT",
+  "devDependencies": {
+    "ejs": "^2.4.1",
+    "express": "^4.13.4"
+  },
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "cookie-parser": "^1.4.1",
+    "express-session": "^1.13.0",
+    "firebase": "^2.4.0"
+  }
+}
