@@ -14,9 +14,16 @@
   "author": "Dimitar Danailov",
   "license": "MIT",
   "devDependencies": {
+    "ejs": "^2.4.1",
     "express": "^4.13.4"
   },
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "cookie-parser": "^1.4.1",
+    "express-session": "^1.13.0",
+    "firebase": "^2.4.0"
+  },
 	"engines": {
-    "node": "4.2.2"
-  }
+		"node": "4.2.2"
+	}
 }
