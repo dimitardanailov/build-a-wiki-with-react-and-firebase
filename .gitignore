@@ -108,3 +108,6 @@ chrome-user-data
 
 # Bower modules.
 /bower_components
+
+# Project files
+public/all.js
