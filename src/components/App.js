@@ -1,6 +1,8 @@
 import React from 'react';
 import {RouteHandler} from 'react-router';
 
+import Login from './Login';
+
 export default class App extends React.Component {
 	state = { 'user': USER };
 
@@ -11,7 +13,7 @@ export default class App extends React.Component {
 					<section className='three columns'>
 						<h1> Wicker </h1>
 
-						Login 
+						<Login user={this.state.user} setUser={this.setUser} />
 
 						PageList
 					</section>
@@ -23,4 +25,6 @@ export default class App extends React.Component {
 		  </section>
 		);
 	}
+
+	setUser = (user) => this.setState({ user: user });
 }

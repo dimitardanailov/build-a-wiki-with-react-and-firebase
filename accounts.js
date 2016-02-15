@@ -13,6 +13,10 @@ class AccountRouter extends ApplicationRouter {
 		this.firebase = new Firebase();
 		// Add a new collection to Firebase.
 		this.users = this.firebase.child('users');
+
+		this.signup();
+		this.signin();
+		this.signout();
 	}
 
 	/**
@@ -27,18 +31,18 @@ class AccountRouter extends ApplicationRouter {
 
 			// Preventing send request to firebase, if you information is not valid.
 			if (!username || !password) {
-				return response.json(ApplicationRouter.getSignedError('no username or password'));
+				return response.json(AccountRouter.getSignedError('no username or password'));
 			}
 
 			// Try to login user in firebase.
 			this.users.child(username).once('value', (snapshot) => {
 				if (snapshot.exists()) {
-					return response.json(ApplicationRouter.getSignedError('username already in use'));
+					return response.json(AccountRouter.getSignedError('username already in use'));
 				}
 
 				const userObject = {
 					'username': username,
-					'passwordHash': ApplicationRouter.hash(password)
+					'passwordHash': AccountRouter.hash(password)
 				};
 
 				// Add a new user to Firebase collection.
@@ -46,8 +50,8 @@ class AccountRouter extends ApplicationRouter {
 
 				request.session.user = userObject;
 
-				response.json(ApplicationRouter.createUserSignObject(userObject));
-			}).bind(this);
+				response.json(AccountRouter.createUserSignObject(userObject));
+			});
 		});
 	}
 
@@ -62,21 +66,21 @@ class AccountRouter extends ApplicationRouter {
 
 			// Preventing send request to firebase, if you information is not valid.
 			if (!username || !password) {
-				return response.json(ApplicationRouter.getSignedError('no username or password'));
+				return response.json(AccountRouter.getSignedError('no username or password'));
 			}
 
 			this.users.child(username).once('value', (snapshot) => {
-				const passwordHash = ApplicationRouter.hash(password);
+				const passwordHash = AccountRouter.hash(password);
 
 				if (!snapshot.exists() || snapshot.child('passwordHash').val() !== passwordHash) {
-					return response.json(ApplicationRouter.getSignedError('wrong username or password.'));
+					return response.json(AccountRouter.getSignedError('wrong username or password.'));
 				}
 
 				const userObject = snapshot.exportVal();
 				request.session.user = userObject;
 
-				response.json(ApplicationRouter.createUserSignObject(userObject));
-			}).bind(this);
+				response.json(AccountRouter.createUserSignObject(userObject));
+			});
 		});
 	}
 
@@ -85,7 +89,7 @@ class AccountRouter extends ApplicationRouter {
 		this.router.post(URIs.signout, (request, response) => {
 			delete request.session.user;
 
-			response.json(ApplicationRouter.getSignedError('You have been signed out'));
+			response.json(AccountRouter.getSignedError('You have been signed out'));
 		});
 	}
 
