@@ -1,0 +1,10 @@
+.section {
+	padding: 5px;
+	margin-bottom: 1em;
+	border-radius: 4px;
+	border: 1px solid #fff;
+}
+
+.section :last-child {
+	margin-bottom: 0;
+}
