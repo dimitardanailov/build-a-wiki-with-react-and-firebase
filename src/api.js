@@ -8,7 +8,7 @@ const post = (url,  body) => fetch(url, {
 		'Content-type': 'application/json',
 		'Accept': 'application/json'
 	}
-}).then(res = res.json());
+}).then(res => res.json());
 
 // Create variable for each api call.
 export const signin = (username, password) => post('/api/signin', { username, password });
@@ -18,3 +18,4 @@ export const signout = () => post('/api/signout');
 // Create a Firebase Instance.
 const firebasePage = 'https://wicker-dimitar.firebaseio.com/pages';
 export const pages = new Firebase(firebasePage);
+
