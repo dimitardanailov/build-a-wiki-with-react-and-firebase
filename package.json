@@ -8,6 +8,7 @@
     "build": "browserify ./src/app.js -t [ babelify --presets [ es2015 react ] --plugins transform-class-properties ] --outfile public/all.js",
     "build:watch": "watch \"npm run build\" ./src"
   },
+	"cacheDirectories": ["node_modules", "bower_components", "public" ],
   "keywords": [
     "firebase",
     "nodejs",
