@@ -8,3 +8,12 @@
 .section :last-child {
 	margin-bottom: 0;
 }
+
+.editable:not(.editing):hover {
+	border-color: #d1d1d1;
+}
+
+.locked {
+	border-color: #ececec;
+	background: #d1d1d1;
+}
