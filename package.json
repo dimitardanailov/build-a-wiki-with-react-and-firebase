@@ -4,6 +4,7 @@
   "description": "A live collaborative wiki",
   "main": "server.js",
   "scripts": {
+    "postinstall": "bower install && npm run build",
     "build": "browserify ./src/app.js -t [ babelify --presets [ es2015 react ] --plugins transform-class-properties ] --outfile public/all.js",
     "build:watch": "watch \"npm run build\" ./src",
   },
