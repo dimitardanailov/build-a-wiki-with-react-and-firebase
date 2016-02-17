@@ -32,5 +32,5 @@ Location of course materials: [tutsplus][published url]
 
 [published url]: https://code.tutsplus.com/courses/building-a-wiki-with-react-and-firebase
 [instructor url]: https://tutsplus.com/authors/andrew-burgess
-[browserify.org]: http://browserify.org/
+[browserify]: http://browserify.org/
 [babel]: http://babeljs.io/
