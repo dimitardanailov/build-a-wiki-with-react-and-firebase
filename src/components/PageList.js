@@ -9,6 +9,15 @@ export default class PageList extends React.Component {
 		'pages': {},
 		'newPageTitle': ''
 	}
+	
+	/**
+	 * @param {Object} props
+	 * @param {String} context
+	 */
+	constructor(props, context) {
+		super(props, context);
+		this.context = context;
+	}
 
 	componentDidMount() {
 		API.pages.on('value', records => this.setState({
@@ -60,7 +69,12 @@ export default class PageList extends React.Component {
 		// We looking for pressing for space key 
 		if (evt.charCode !== 13) return;
 
-		API.pages.push({ 'title': this.state.newPageTitle });
+		const id = API.pages.push({ 'title': this.state.newPageTitle });
+		this.context.router.transitionTo('page', { 'id': id.key() });
 		this.setState({ 'newPageTitle': '' });
 	}
 }
+
+PageList.contextTypes = {
+	'router': React.PropTypes.func.isRequired
+};

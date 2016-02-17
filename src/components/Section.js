@@ -31,6 +31,16 @@ export default class Section extends React.Component {
 	}
 
 	/**
+	 * @param {Object} prevProps
+	 * @param {Object} prevState
+	 */
+	componentDidUpdate(prevProps, prevState) {
+		if (this.state.editing) {
+			React.findDOMNode(this.refs.editor).focus();
+		}
+	}
+
+	/**
 	 * Application need custom function for tracking a section.
 	 *
 	 * @param {Object} props
@@ -66,7 +76,7 @@ export default class Section extends React.Component {
 		let content; 
 
 		if (this.state.editing) {
-			content = <textarea className='twelve columns' defaultValue={this.state.content}
+			content = <textarea ref='editor' className='twelve columns' defaultValue={this.state.content}
 				onChange={this.updateContent} onBlur={this.saveContent}/>;
 		} else {
 			content = <div dangerouslySetInnerHTML={ { __html: this.state.html } } />;
@@ -97,7 +107,7 @@ export default class Section extends React.Component {
 	startEditing = evt => {
 		if (evt.target.tagName === 'A') {
 			const href = evt.target.getAttribute('href');
-			if (href.indexOf('/page/') > -1) {
+			if (href.indexOf('/page/') === 0) {
 				this.context.router.transitionTo(href);
 				
 				return evt.preventDefault();
