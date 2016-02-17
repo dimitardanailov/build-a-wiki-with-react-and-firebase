@@ -35,10 +35,25 @@ export default class Login extends React.Component {
 		);
 	}
 
+	/**
+	 * @param {Object} evt
+	 */
 	signin = evt => this.sign('signin', evt);
+
+	/**
+	 * @param {Object} evt
+	 */
 	signup = evt => this.sign('signup', evt);
+
+	/**
+	 * @param {Object} evt
+	 */
 	signout = evt => API.signout().then(data => this.props.setUser(null));
 
+	/**
+	 * @param {String} name 
+	 * @param {Object} evt
+	 */
 	sign = (name, evt) => {
 		const username = React.findDOMNode(this.refs.username).value,
 					password = React.findDOMNode(this.refs.password).value;

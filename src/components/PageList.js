@@ -64,7 +64,14 @@ export default class PageList extends React.Component {
 		return items;
 	}
 
+	/**
+	 * @param {Object} evt
+	 */
 	updateTitle = evt => this.setState({ 'newPageTitle': evt.target.value });
+
+	/**
+	 * @param {Object} evt
+	 */
 	createPage = evt => { 
 		// We looking for pressing for space key 
 		if (evt.charCode !== 13) return;

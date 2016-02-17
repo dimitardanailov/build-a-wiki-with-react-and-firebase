@@ -111,6 +111,8 @@ class AccountRouter extends ApplicationRouter {
 	 * Object keys are:
 	 * - signedIn
 	 * - message
+	 *
+	 * @param {String} message
 	 */
 	static getSignedError(message) {
 		return {
@@ -124,6 +126,8 @@ class AccountRouter extends ApplicationRouter {
 	 * Object keys are:
 	 * - signedIn
 	 * - user
+	 *
+	 * @param {Object} userObject
 	 */
 	static createUserSignObject(userObject) {
 		return {
@@ -134,6 +138,8 @@ class AccountRouter extends ApplicationRouter {
 
 	/**
 	 * Using crypto library we create a new sha512 hash
+	 *
+	 * @param {String} password
 	 */
 	static hash(password) {
 		const passwordHash = crypto.createHash('sha512').update(password).digest('hex');

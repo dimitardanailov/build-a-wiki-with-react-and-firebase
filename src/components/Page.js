@@ -26,6 +26,8 @@ export default class Page extends React.Component {
 
 	/**
 	 * Grab a snapshot and update page information.
+	 * 
+	 * @param {Object} snapshot
 	 */
 	updateContent = (snapshot) => {
 		let json = snapshot.exportVal();
@@ -73,6 +75,9 @@ export default class Page extends React.Component {
 		return sections;
 	}
 
+	/**
+	 * @param {Object} evt
+	 */
 	addSection = evt => {
 		let id;
 
