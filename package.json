@@ -6,7 +6,7 @@
   "scripts": {
     "build": "browserify ./src/app.js -t [ babelify --presets [ es2015 react ] --plugins transform-class-properties ] --outfile public/all.js",
     "build:watch": "watch \"npm run build\" ./src",
-		"postinstall": "bower install && npm run build"
+    "postinstall": "bower install && npm run build"
   },
   "keywords": [
     "firebase",
@@ -25,6 +25,7 @@
   },
   "dependencies": {
     "body-parser": "^1.15.0",
+    "bower": "^1.7.7",
     "cookie-parser": "^1.4.1",
     "ejs": "^2.4.1",
     "express": "^4.13.4",
