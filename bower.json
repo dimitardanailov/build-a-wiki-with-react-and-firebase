@@ -1,0 +1,26 @@
+{
+  "name": "wicker",
+  "description": "A live collaborative wiki",
+  "main": "server.js",
+  "authors": [
+    "Dimitar Danailov"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "firebase",
+    "nodejs",
+    "react"
+  ],
+  "homepage": "https://github.com/dimitardanailov/build-a-wiki-with-react-and-firebase",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "skeleton": "~2.0.4"
+  }
+}
