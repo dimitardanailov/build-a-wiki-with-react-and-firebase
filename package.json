@@ -4,11 +4,15 @@
   "description": "A live collaborative wiki",
   "main": "server.js",
   "scripts": {
-    "postinstall": "bower install",
+    "postinstall": "bower install && npm run build",
     "build": "browserify ./src/app.js -t [ babelify --presets [ es2015 react ] --plugins transform-class-properties ] --outfile public/all.js",
     "build:watch": "watch \"npm run build\" ./src"
   },
-	"cacheDirectories": ["node_modules", "bower_components", "public" ],
+  "cacheDirectories": [
+    "node_modules",
+    "bower_components",
+    "public"
+  ],
   "keywords": [
     "firebase",
     "nodejs",
@@ -17,16 +21,16 @@
   "author": "Dimitar Danailov",
   "license": "MIT",
   "devDependencies": {
+    "watch": "^0.17.1"
+  },
+  "dependencies": {
     "babel-plugin-transform-class-properties": "^6.5.2",
     "babel-preset-es2015": "^6.5.0",
     "babel-preset-react": "^6.5.0",
     "babelify": "^7.2.0",
-    "browserify": "^13.0.0",
-    "watch": "^0.17.1"
-  },
-  "dependencies": {
     "body-parser": "^1.15.0",
     "bower": "^1.7.7",
+    "browserify": "^13.0.0",
     "cookie-parser": "^1.4.1",
     "ejs": "^2.4.1",
     "express": "^4.13.4",
